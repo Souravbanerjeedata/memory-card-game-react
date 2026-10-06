@@ -43,7 +43,7 @@ const App = () => {
     // shuffle the cards
     const shuffled = shuffleArray(cardValues);
 
-    const finalCard = cardValues.map((value, index) => ({
+    const finalCard = shuffled.map((value, index) => ({
       id: index,
       value,
       isFlipped: false,
