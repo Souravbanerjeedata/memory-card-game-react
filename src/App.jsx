@@ -27,6 +27,7 @@ const App = () => {
   const [matchedCards, setMatchedCards] = useState([]);
   const [score, setScore] = useState(0);
   const [moves, setMoves] = useState(0);
+  const [isLocked, setIsLocked] = useState(false);
 
   function initializeGame() {
     // shuffle the cards
@@ -43,6 +44,7 @@ const App = () => {
     setMoves(0);
     setMatchedCards([]);
     setFlippedCards([]);
+    setIsLocked(false);
   }
 
   useEffect(() => {
@@ -51,7 +53,12 @@ const App = () => {
 
   function handleCardClick(card) {
     // don't do anything if the card is flipped
-    if (card.isFlipped || card.isMatched) {
+    if (
+      card.isFlipped ||
+      card.isMatched ||
+      isLocked ||
+      flippedCards.length === 2
+    ) {
       return;
     }
 
@@ -71,6 +78,7 @@ const App = () => {
     // check for match if two cards were flipped
 
     if (flippedCards.length === 1) {
+      setIsLocked(true);
       const firstCard = cards[flippedCards[0]];
 
       if (firstCard.value === card.value) {
@@ -88,6 +96,7 @@ const App = () => {
           );
 
           setFlippedCards([]);
+          setIsLocked(false);
         }, 500);
       } else {
         // flip card 1 and 2
@@ -101,6 +110,7 @@ const App = () => {
           });
           setcards(flippedBackCard);
           setFlippedCards([]);
+          setIsLocked(false);
         }, 1000);
       }
       setMoves((prev) => prev + 1);
