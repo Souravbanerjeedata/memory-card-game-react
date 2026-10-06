@@ -4,22 +4,22 @@ import WinMessage from "./components/WinMessage";
 import { useGameLogic } from "./hooks/useGameLogic";
 
 const cardValues = [
-  "🍎",
-  "🍌",
-  "🍇",
-  "🍊",
-  "🍓",
-  "🥝",
-  "🍑",
-  "🍒",
-  "🍎",
-  "🍌",
-  "🍇",
-  "🍊",
-  "🍓",
-  "🥝",
-  "🍑",
-  "🍒",
+  "🌙",
+  "⭐",
+  "🪐",
+  "☄️",
+  "🛰️",
+  "🌌",
+  "🔭",
+  "🌠",
+  "🌙",
+  "⭐",
+  "🪐",
+  "☄️",
+  "🛰️",
+  "🌌",
+  "🔭",
+  "🌠",
 ];
 
 const App = () => {
@@ -37,7 +37,7 @@ const App = () => {
       {isGameComplete && <WinMessage moves={moves} />}
       <div className="cards-grid">
         {cards.map((card) => {
-          return <Card card={card} onClick={handleCardClick} />;
+          return <Card key={card.id} card={card} onClick={handleCardClick} />;
         })}
       </div>
     </div>

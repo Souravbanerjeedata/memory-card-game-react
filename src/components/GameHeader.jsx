@@ -1,7 +1,8 @@
 const GameHeader = ({ score, moves, onReset }) => {
   return (
     <div className="game-header">
-      <h1>Memory Card Game</h1>
+      <h1>Cosmic Pairs</h1>
+      <p>Find the matching constellations</p>
       <div className="stats">
         <div className="stat-item">
           <span className="stat-label">Score:</span>{" "}
@@ -13,7 +14,7 @@ const GameHeader = ({ score, moves, onReset }) => {
         </div>
       </div>
       <button className="reset-btn" onClick={onReset}>
-        New Game
+        Restart game
       </button>
     </div>
   );
