@@ -1,6 +1,6 @@
 # 🌌 Cosmic Pairs — Memory Card Game
 
-![Preview](./public/preview.png)
+![preview](./public/preview.png)
 
 A clean, space-themed **memory matching game** built with React and Vite.  
 Find all matching constellation pairs while tracking your score and moves.
